@@ -1,9 +1,22 @@
 <template>
   <div id="app">
-    <h1>Ping pong at you! 🏓</h1>
+    <h1>Ping pong at work! 🏓</h1>
+    <p>{{ hello }}</p>
   </div>
 </template>
-
+<script>
+export default {
+  name: 'App',
+  computed: {
+    hello () {
+      return this.$store.getters['config/hello']
+    }
+  },
+  mounted () {
+    this.$store.dispatch('config/hello')
+  }
+}
+</script>
 <style lang="scss">
 #app {
   text-align: center;
