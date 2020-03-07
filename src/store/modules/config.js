@@ -1,10 +1,20 @@
 import Vue from 'vue'
 
-const state = {}
+const state = {
+  hello: ''
+}
 
-const mutations = {}
+const mutations = {
+  setHello (state, payload) {
+    state.hello = payload
+  }
+}
 
-const getters = {}
+const getters = {
+  hello: state => {
+    return state.hello
+  }
+}
 
 const actions = {
   hello: async (context) => {
@@ -19,7 +29,7 @@ const actions = {
 
     const data = response.data
 
-    console.log(data)
+    context.commit('setHello', data)
   }
 }
 

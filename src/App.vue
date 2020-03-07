@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1>Ping pong at work! 🏓</h1>
-    <p>{{ hello }}</p>
+    <p>{{ hello.msg }}</p>
   </div>
 </template>
 <script>
