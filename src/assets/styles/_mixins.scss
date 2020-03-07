@@ -1,0 +1,209 @@
+// media query
+@mixin media($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  }
+
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Please make sure it is defined in `$breakpoints` map.";
+  }
+}
+
+// measure
+@mixin container($padding: true) {
+  max-width: calc(#{measure(container)});
+  width: 100%;
+  margin: 0 auto;
+  
+  @if($padding) {
+    $padding-base: measure(half) * 2;
+    
+    max-width: calc(#{measure(container)} + #{$padding-base});
+    padding-right: measure(half);
+    padding-left: measure(half);
+  }
+  
+  @include media(small) {
+    max-width: calc(#{measure(container)});
+    
+    @if($padding) {
+      $padding-small: measure(full) * 2;
+      
+      max-width: calc(#{measure(container)} + #{$padding-small});
+      padding-right: measure(full);
+      padding-left: measure(full);
+    }
+  }
+}
+
+// export
+@mixin export-map($map, $name: '', $stringify: false) {
+  :export {
+    @each $key, $value in $map {
+      @if $value != null {
+        @if ($stringify) {
+           #{$key}: #{inspect($value)};
+        } @else if (str-length($name) > 0) {
+           #{$name}-#{$key}: #{$value};
+        } @else {
+          #{$key}: #{$value};
+        }
+      }
+    }
+  }
+}
+
+@mixin expanded-cards($amount, $class) {
+  @for $i from 1 through $amount {
+    $nAmount: $i - 1;
+     &:nth-child(#{$amount}n + #{$i}) #{$class} {
+       @if ($i - 1) > 0 {
+        margin-left: calc(-100% * (#{$i} - 1) - (#{measure(grid-gap)} * (#{$i} - 1)));
+       } @else {
+         margin-left: 0;
+       }
+       width: calc(100% * #{$amount} + (#{measure(grid-gap)} * (#{$amount} - 1)));
+     }
+  }
+}
+
+// fonts
+@mixin h1() {
+  font-size: font(h1);
+  font-weight: 300;
+}
+
+@mixin h1-bold() {
+  font-size: font(h1);
+  font-weight: 500;
+}
+
+@mixin h2() {
+  font-size: font(h2);
+  font-weight: 300;
+}
+
+@mixin h2-bold() {
+  font-size: font(h2);
+  font-weight: 500;
+}
+
+@mixin h3() {
+  font-size: font(h3);
+  font-weight: 300;
+}
+
+@mixin h3-bold() {
+  font-size: font(h3);
+  font-weight: 500;
+}
+
+@mixin h4() {
+  font-size: font(h4);
+  font-weight: 300;
+}
+
+@mixin h4-bold() {
+  font-size: font(h4);
+  font-weight: 500;
+}
+
+@mixin h5() {
+  font-size: font(smaller);
+  font-weight: 300;
+}
+
+@mixin body() {
+  font-size: font(body);
+  font-weight: 300;
+}
+
+@mixin body-bold() {
+  font-size: font(body);
+  font-weight: 500;
+}
+
+@mixin body-small() {
+  font-size: font(small);
+  font-weight: 300;
+}
+
+@mixin body-smaller() {
+  font-size: font(smaller);
+  font-weight: 300;
+}
+
+@mixin body-smaller() {
+  font-size: font(smaller);
+  font-weight: 300;
+}
+
+@mixin body-smaller-bold() {
+  font-size: font(smaller);
+}
+
+@mixin body-tiny() {
+  font-size: font(tiny);
+  font-weight: 300;
+}
+
+@mixin body-tiny-bold() {
+  font-size: font(tiny);
+}
+
+@mixin input() {
+  font-size: 1rem;
+}
+
+// general
+@mixin link() {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// general
+@mixin reset-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+@mixin button {
+  &:hover {
+    cursor: pointer;
+  }
+  &[disabled]:hover {
+    cursor: default;
+  }
+}
+
+@mixin reset-button($use-flex: true) {
+  @if $use-flex {
+    display: flex;
+    align-items: center;
+  }
+  
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+@mixin reset-link() {
+  text-decoration: none;
+  color: color(blue);
+  
+  &:hover {
+    text-decoration: underline;
+  }
+}

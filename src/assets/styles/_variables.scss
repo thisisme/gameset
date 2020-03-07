@@ -1,0 +1,69 @@
+@import 'mixins';
+
+// breakpoints
+$breakpoints: (
+  to-small:                                   ( max-width:  766px ),
+  small:                                      ( min-width:  767px ),
+  to-medium:                                  ( max-width:  991px ),
+  medium:                                     ( min-width:  992px ),
+  to-large:                                   ( max-width: 1199px ),
+  large:                                      ( min-width: 1200px ),
+  to-x-large:                                 ( max-width: 1599px ),
+  x-large:                                    ( min-width: 1600px )
+);
+
+@include export-map($breakpoints, '', true);
+
+// colors
+$colors: (
+  black:                                      #000000,
+  slate:                                      #485A64,
+  dark-blue:                                  #0749BC,
+  blue:                                       #0F58D6,
+  blue-3:                                     #517FD0,
+  duck-egg-blue:                              #DDE3E3,
+  bright-olive:                               #88C008,
+  gray:                                       #A3ACB1,
+  gray-2:                                     #86989C,
+  gray-3:                                     #DCE0E1,
+  cool-gray:                                  #A3ACB1,
+  pale-gray:                                  #F7F7F7,
+  white:                                      #FFFFFF,
+  ice-blue:                                   #EBF0F0,
+  pale-blue:                                  #D7F1F4,
+  cloudy-blue:                                #C1C9CC,
+  cherry-red:                                 #EB202A,
+  golden-yellow:                              #FFD615,
+  orange-1:                                   #FF8004,
+);
+
+// font-sizes
+$font-sizes: (
+  h1:                                         2rem,             // 32px
+  h2:                                         1.5rem,           // 24px
+  h3:                                         1.25rem,          // 20px
+  h4:                                         1.125rem,         // 18px
+  body:                                       1rem,             // 16px
+  smaller:                                    0.9375rem,        // 15px
+  small:                                      0.875rem,         // 14px
+  tiny:                                       0.75rem,          // 12px
+);  
+  
+// measures 
+$measures: (  
+  quad:                                       2.8125rem,        // 45px
+  double:                                     2.1875rem,        // 35px
+  full:                                       1.5625rem,        // 25px
+  half:                                       0.9375rem,        // 15px
+  quarter:                                    0.625rem,         // 10px
+  eighth:                                     0.25rem,          // 4px
+    
+  container:                                  82.25rem,         // 1316px
+  container-distance:                         1.25rem,          // 20px
+  grid-gap:                                   1.25rem,          // 20px
+);
+
+// misc
+$other: (
+  border-radius:                              0.1875rem,
+);

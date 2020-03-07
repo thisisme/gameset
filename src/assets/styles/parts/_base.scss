@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap');
+
+body {
+  @include body;
+  font-family: 'Dosis', sans-serif;
+  background-color: color(ice-blue);
+  font-size: 100%;
+  min-height: 100vh;
+  line-height: initial;
+	-webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: color(slate);
+}
+
+input,
+button {
+  outline: none;
+}
+
+a {
+  @include link;
+}
+
+button {
+  @include button;
+}
+
+.main__container {
+  @include container;
+}
+
+.container {
+  @include container;
+}
+
+.page-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.bottom-margin {
+  margin-bottom: 1rem;
+}
+.no-border {
+  border: none;
+}
+.transparent {
+  background-color: transparent;
+}

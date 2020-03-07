@@ -1,0 +1,64 @@
+// color
+@function colorfunction($color-map, $color-name, $color-variant: null) {
+  @if ($color-map == null) {
+    @return null;
+  }
+
+  @if ($color-variant != null) {
+    @return map-get(map-get($color-map, $color-name), $color-variant);
+  } @else {
+    @return map-get($color-map, $color-name);
+  }
+}
+
+@function color($color-name, $color-variant: null) {
+  @return colorfunction($colors, $color-name, $color-variant);
+}
+
+
+// font
+@function font($value) {
+
+  @if(map-has-key($font-sizes, $value)) {
+    @return map-get($font-sizes, $value);
+  }
+
+  @error "Unknown value in font(`#{$value}`).";
+
+  @return null;
+}
+
+
+// measure
+@function measure($size) {
+
+  @if(map-has-key($measures, $size)) {
+    @return map-get($measures, $size);
+  }
+
+  @error "Unknown size in measure(`#{$size}`).";
+
+  @return null;
+}
+
+// other
+@function other($value) {
+
+  @if(map-has-key($other, $value)) {
+    @return map-get($other, $value);
+  }
+
+  @error "Unknown size in other(`#{$value}`).";
+
+  @return null;
+}
+
+// calculating stuff
+@function card-width($amount) {
+  @if ($amount == null) {
+    @error "You need to pass in how many columns to calculate, variable $amount";
+    @return null;
+  }
+  
+  @return calc((#{measure(container)} - (#{measure(grid-gap)} * (#{$amount} - 1))) / #{$amount});
+}
