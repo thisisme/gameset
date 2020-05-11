@@ -1,29 +1,8 @@
-# pingpongat
+# GameSet.se
+[![Netlify Status](https://api.netlify.com/api/v1/badges/04eeb919-d990-4b3f-a3fa-2b9d2168f8c6/deploy-status)](https://app.netlify.com/sites/silly-hermann-8b9985/deploys)
 
-## Project setup
+## Gameset got you covered
 ```
-npm install
+Create a team and register your games. It may be tennis, table tennis, padel, badminton...
+Add the players and keep track of the scores
 ```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

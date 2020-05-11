@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>Ping pong at work! 🏓</h1>
+    <h1>GameSet got you covered! 🏓</h1>
     <p>{{ hello.msg }}</p>
   </div>
 </template>
